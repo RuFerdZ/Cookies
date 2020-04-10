@@ -1,6 +1,7 @@
 <?php
 include("db.php");
-$userID = 1;
+session_start();
+$userID = $_SESSION['userid'];
 $receiverID = $_GET['receiverID'];
 // if ($receiverID == null) {
 //     $receiverID = $_GET['receiverID'];
