@@ -11,6 +11,9 @@ include ("headFile.html");
 $SQL = "SELECT dentistID, fname, lname, contactNo, email, address, dentistImage, rate FROM dentist";
 
 echo "<div class='container' style='margin-top:1%;'>";
+date_default_timezone_set('Asia/Colombo');
+$today = date("F j, Y, g:i a"); 
+echo "<p class=float-right mb-5>".$today."</p>";
 echo "<h3 style='margin-bottom:2%;'>";
 echo "View All Dentists Here";
 echo "</h3>";
@@ -30,6 +33,7 @@ foreach ($dbh->query($SQL) as $row) {
             echo "<form method='POST' action='appointments.php'>";
                 echo "<input type=submit class='btn btn-dark text-center' value = 'Book Appointment'>";
                 echo "<input type=hidden name = doc_Id value = ".$row['dentistID'].">";
+                echo "<input type=hidden name = doc_lName value = ".$row['lname'].">";
             echo "</form>";    
         echo "</div>";
     echo "</div>";
