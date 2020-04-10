@@ -21,11 +21,24 @@
 		<div id="wrapper">
 		
 
+
 				<div id="margin">Title: <input id="title" type="text" name="title" placeholder="Enter title"></div>
+
+		<div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="inputEmail4">Dentist ID: </label>
+		      <input type="textarea" class="form-control" id="input" name="docid">
+		    </div>
+		 </div>
 				<textarea placeholder="Enter Review (Optional)." id="text" name="text" rows="4" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
 				<br>
 
+
+
 		</div>
+
+
+
 
 	
 		<div class="page">
