@@ -1,5 +1,20 @@
 <?php
-include("db.php");
+$dbhost = '128.199.253.218';
+$dbusername = 'cookies';
+$dbpassword = 'NoCookies4U';
+$dbname = 'CookieJar';
+
+//creating a DB connection
+$conn = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname);
+
+//displaying a message if the connection fails
+if(!$conn){
+    die('Could not connect : '.mysqli_error($conn));
+}
+
+//select the database
+mysqli_select_db($conn, $dbname);
+
 session_start();
 $pagename="Appointment Details"; //Create and populate a variable called $pagename
 echo "<link rel=stylesheet type=text/css href=css/bootstrap.min.css>";
