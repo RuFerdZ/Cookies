@@ -1,6 +1,18 @@
 <?php
 	session_start();
-	include("db.php");
+$dbhost = '128.199.253.218';
+$dbusername = 'cookies';
+$dbpassword = 'NoCookies4U';
+$dbname = 'CookieJar';
+
+//creating a DB connection
+$conn = mysqli_connect($dbhost, $dbusername, $dbpassword, $dbname);
+
+//displaying a message if the connection fails
+if (!$conn) {
+	die('Could not connect : ' . mysqli_error($conn));
+}
+
 	$pagename="Order Confirmation"; //Create and populate a variable called $pagename
 	echo "<link rel=stylesheet type=text/css href=css/bootstrap.min.css>";
 	echo "<title>".$pagename."</title>"; //display name of the page as window title
@@ -17,13 +29,13 @@
 	  
 
 	$dentistId = $_SESSION['userId'];
-	$appNo = $_SESSION['total'];
+	// $appNo = $_SESSION['total'];
 	$userId = $_SESSION['userid'];
 	$appTime= date('Y-m-d H:i:s');
 
 
 	try{
-		$SQL = "insert into appoinment(appNo, appTime,dentistId,userId) values ('$appNo','$appTime','$dentistId','$userId')";
+		$SQL = "insert into appointment(appTime,dentistId,userId) values ('$appTime','$dentistId','$userId')";
 
 		$exeSQL=mysqli_query($conn, $SQL) or die(mysqli_error($conn));
 		

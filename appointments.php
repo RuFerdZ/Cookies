@@ -88,7 +88,7 @@ else {
 	echo"</table>";
 	echo "<a href='clearbasket.php'>Clear Basket</a>";
 	}
-	if(isset($_SESSION['userId'])){
+	if(isset($_SESSION['userid'])){
 
 		echo "<br><br>To confirm booking :  <a href='checkout.php'>Confirm Order</a>";	
 	}else{
