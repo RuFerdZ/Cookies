@@ -1,10 +1,10 @@
 <?php
 include ("db.php");  //include db.php file to connect to DB
 
-$pagename="Dental Consultancy"; //Create and populate a variable called $pagename 
+$pagename="Dental Consultancy";
 
 echo "<link rel=stylesheet type=text/css href=css/bootstrap.min.css>";
-echo "<title>" .$pagename. "</title>"; //display name of the page as window title
+echo "<title>" .$pagename. "</title>";
 echo "<body>";
 include ("headFile.html");
 
@@ -19,6 +19,7 @@ echo "View All Dentists Here";
 echo "</h3>";
 echo "<div class='card-deck pb-5'>";
 
+//display all dentists in the database
 foreach ($dbh->query($SQL) as $row) {
     echo "<div class='card'>";
         echo "<a href=appointments.php".$row['dentistID'].">";
@@ -44,6 +45,6 @@ echo "</div>";
 echo "<script src='js/jquery.slim.min.js'></script>";
 echo "<script src='js/popper.min.js'></script>";
 echo "<script src='js/bootstrap.min.js'></script>";
-include("footFile.html"); //include head layout
+include("footFile.html");
 echo "</body>";
 ?>
