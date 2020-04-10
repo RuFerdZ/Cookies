@@ -2,7 +2,7 @@
 	session_start();
 	include('db.php');
 
-	$userid =$_POST['userid'];
+	$userid = $_SESSION['userid'];
 	$docid = $_POST['docid'];
 	$star = $_POST['rating-star2'];
 	$review = $_POST['text'];
@@ -13,13 +13,13 @@
 	echo "<br> Message: ";
 	echo $review;
 
-	$sql = "INSERT INTO review (dentistID, userID, starReviews,message)
-			VALUES ('$docid', '$userid', '$star','$review')";
-
-	if ($dbh->query($sql) === TRUE) {
-	    echo "Review Added Successfully";
-	} else {
-	    echo "Error: " . $sql . "<br>" . $dbh->error;
+	try {
+		$sql = "INSERT INTO review (dentistID, userID, starReviews,message)
+				VALUES (" . $docid . ", " . $userid . ", " . $star . ",'" . $review . "')";
+		$dbh->exec($sql);
+		echo "Review Added Successfully";
+	} catch (PDOException $e) {
+		echo $e->getMessage();
 	}
  
 ?>
