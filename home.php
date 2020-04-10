@@ -34,7 +34,7 @@ foreach ($dbh->query($SQL) as $row) {
             echo "<form method='POST' action='appointments.php'>";
                 echo "<input type=submit class='btn btn-dark text-center' value = 'Book Appointment'>";
                 echo "<input type=hidden name = doc_Id value = ".$row['dentistID'].">";
-                echo "<input type=hidden name = doc_lName value = ".$row['lname'].">";
+                echo "<input type=hidden name = doc_name value = ".$row['lname'].">";
             echo "</form>";    
         echo "</div>";
     echo "</div>";
