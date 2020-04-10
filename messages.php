@@ -54,7 +54,7 @@ if (isset($_GET['message'])) {
                     echo '</div>';
                     echo '</th>';
                     echo '</tr>';
-                    $sql = "SELECT message.message, message.senderID, message.receiverID, CONCAT(user.userFname, ' ', user.userSName) as receiverName FROM message INNER JOIN user ON user.userID=receiverID WHERE senderID = " . $receiverID . " or receiverID = " . $receiverID." ORDER BY `createdAt`";
+                    $sql = "SELECT message.message, message.senderID, message.receiverID, CONCAT(user.userFname, ' ', user.userSName) as receiverName FROM message INNER JOIN user ON user.userID=receiverID WHERE senderID = " . $receiverID . " or receiverID = " . $receiverID. " ORDER BY createdAt";
     
                     foreach ($dbh->query($sql) as $row) {
                         if ($row['senderID'] ==  $receiverID) {

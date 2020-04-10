@@ -20,14 +20,14 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
 
         try {
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $dbh->prepare("SELECT * from users where userEmail = $email");
-            $stmt->execute();
-        
-            // set the resulting array to associative
-            $arrayu = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-                echo $v;
+        // $stmt = $dbh->prepare("SELECT * from user where userEmail = '$email'");
+        // $stmt->execute();
 
+        // set the resulting array to associative
+        // $arrayu = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $sql = "SELECT * from user where userEmail = '". $email ."'";
+            foreach ($dbh->query($sql) as $arrayu) {
+            // foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
                 if(!isset($arrayu['userEmail'])){
                     echo "<p> The email is not registered with Dental Consultancy </p>";
                     echo "<p> If you are a new user: <a href = 'signup.php'> Sign Up </a> </p>";
@@ -35,9 +35,9 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
                 }else{
                     if($arrayu['userPassword'] !== $password){
                         echo "<p> The password you have entered for your account is incorrect </p>";
-                        echo "<p> Try logging in again: <a href = 'login.php'> Log In </a> </p> ";
+                        echo "<p> Try logging in again: <a href = 'home.php'> Log In </a> </p> ";
                     }else{
-                        $_SESSION['userid'] = $arrayu['userId'];
+                        $_SESSION['userid'] = $arrayu['userID'];
                         $_SESSION['usertype'] = $arrayu['userType'];
                         $_SESSION['fname'] = $arrayu['userFName'];
                         $_SESSION['sname'] = $arrayu['userSName'];
@@ -47,8 +47,8 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
                         $type = $_SESSION['usertype'];
         
                         echo "<p> You have successfully logged in </p>";
-                        echo "<p> Welcome $fName $sName </p>";
-                        echo "<p> Visit<a href = 'index.php'> Dental Consultancy Home Page </a> to book your appointment.</p>";
+                        echo "<p> Welcome $fName $sName</p>";
+                        echo "<p> Visit<a href = 'home.php'> Dental Consultancy Home Page </a> to book your appointment.</p>";
                         }
                 }
         
