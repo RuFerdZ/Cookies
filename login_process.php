@@ -40,10 +40,10 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
                         $_SESSION['userid'] = $arrayu['userID'];
                         $_SESSION['usertype'] = $arrayu['userType'];
                         $_SESSION['fname'] = $arrayu['userFname'];
-                        $_SESSION['sname'] = $arrayu['userSname'];
+                        $_SESSION['sname'] = $arrayu['userSName'];
         
                         $fName =$arrayu['userFname'];
-                        $sName = $arrayu['userSname'];
+                        $sName = $arrayu['userSName'];
                         $type =  $arrayu['userType'];
         
                         echo "<p> You have successfully logged in </p>";
