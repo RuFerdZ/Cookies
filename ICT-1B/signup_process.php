@@ -3,7 +3,7 @@ session_start();
 include ('db.php');
 
 $pagename = "Your Sign Up Results"; //create and populate a variable called $pagename
-echo "<link rel = \"stylesheet\" type = \"text/css\" href = \"mystylesheet.css\">"; //call in stylesheet
+echo "<link rel = \"stylesheet\" type = \"text/css\" href = css\"mystylesheet.css\">"; //call in stylesheet
 
 echo "<title>".$pagename."</title>"; //display the name of the page as window title
 
