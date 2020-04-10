@@ -7,7 +7,7 @@
     } catch (PDOException $e) {
         die('Connection failed: ' . $e->getMessage());
     }
-    foreach ($dbh->query('SELECT * from dentist') as $row) {
-        print_r($row);
-    }
+    // foreach ($dbh->query('SELECT * from dentist') as $row) {
+    //     print_r($row);
+    // }
 ?>
