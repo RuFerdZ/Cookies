@@ -52,13 +52,13 @@ else {
 		 
 			
 			foreach($_SESSION['basket'] as $index =>$value){
-			$SQL="select fname, lname , rate from dentist where dentistID=$value"; 
+			$SQL="select fname, lname , rate from dentist where dentistID=$index"; 
 			$exeSQL=mysqli_query($conn, $SQL) or die (mysqli_error()); 
 			while ($arrayp=mysqli_fetch_array($exeSQL) )      
 			{  
 			echo"<tr>";
 				
-				echo" <th>$value</th>";
+				echo" <th>$index</th>";
 				echo" <th>".$arrayp['fName']."</th>";
 				echo" <th> $".$arrayp['lname']."</th>";
 				echo "<td> $".$arrayp['rate']."</td>";
