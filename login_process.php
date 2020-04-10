@@ -39,11 +39,6 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
                     }else{
                         $_SESSION['userid'] = $arrayu['userID'];
                         $_SESSION['usertype'] = $arrayu['userType'];
-                        $_SESSION['fname'] = $arrayu['userFName'];
-                        $_SESSION['sname'] = $arrayu['userSName'];
-        
-                        $fName = $_SESSION['fname'];
-                        $sName = $_SESSION['sname'];
                         $type = $_SESSION['usertype'];
         
                         echo "<p> You have successfully logged in </p>";
