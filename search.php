@@ -3,7 +3,7 @@ $pagename="Dental Consultancy"; //create and populate variable called $pagename
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
 echo "<title>".$pagename."</title>";
 echo "<body>";
-include ("headfile.html");
+include ("headFile.html");
 // php search data in mysql database using PDO
 // set data in input text
 
@@ -68,5 +68,5 @@ if(isset($_POST['Find']))
 </body>
 </html>
 <?php
-include ("footfile.html");
+include ("footFile.html");
 ?>
