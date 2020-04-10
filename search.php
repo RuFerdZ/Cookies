@@ -1,6 +1,7 @@
 <?php
 $pagename="Dental Consultancy"; //create and populate variable called $pagename
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
+echo "<link rel='stylesheet' type='text/css' href=css/bootstrap.min.css>"; //call in stylesheet
 echo "<title>".$pagename."</title>";
 echo "<body>";
 include ("headFile.html");
