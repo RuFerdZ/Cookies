@@ -1,0 +1,159 @@
+.rating{
+  --uiRatingSize: var(--ratingSize, 20px);
+  --uiRatingColor: var(--ratingColor, #eee);
+  --uiRatingColorActive: var(--ratingColorActive, #ffcc00);
+  --uiRatingStroke: var(--ratingStroke, #222);
+  --uiRatingStrokeWidth: var(--ratingStrokeWidth, 1px);
+
+  display: flex;
+  font-size: var(--uiRatingSize);
+  color: var(--uiRatingColor);
+  position: relative;
+}
+
+.rating__control{
+  position: absolute;
+  left: -9999px;
+}
+
+.rating__control:nth-of-type(1):focus ~ .rating__item:nth-of-type(1):before,
+.rating__control:nth-of-type(2):focus ~ .rating__item:nth-of-type(2):before,
+.rating__control:nth-of-type(3):focus ~ .rating__item:nth-of-type(3):before,
+.rating__control:nth-of-type(4):focus ~ .rating__item:nth-of-type(4):before,
+.rating__control:nth-of-type(5):focus ~ .rating__item:nth-of-type(5):before{
+  content: ""; 
+  box-shadow: 0 0 0 4px var(--uiRatingColorActive);
+  
+  position: absolute;
+  top: -.15em;
+  right: 0;
+  bottom: -.15em;
+  left: 0;
+  z-index: -1;
+}
+
+.rating__item{
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;  
+  position: relative;
+}
+
+.rating__item{
+  padding-left: .25em;
+  padding-right: .25em;
+}
+
+.rating__star{
+  display: block;
+  width: 1em;
+  height: 1em;
+
+  fill: currentColor;
+  stroke: var(--uiRatingStroke);
+  stroke-width: var(--uiRatingStrokeWidth);
+}
+
+.rating__label{
+  position: absolute;
+  top: 0;
+  left: -9999px;
+}
+
+.rating:hover,
+.rating__control:nth-of-type(1):checked ~ .rating__item:nth-of-type(1),
+.rating__control:nth-of-type(2):checked ~ .rating__item:nth-of-type(-n+2),
+.rating__control:nth-of-type(3):checked ~ .rating__item:nth-of-type(-n+3),
+.rating__control:nth-of-type(4):checked ~ .rating__item:nth-of-type(-n+4),
+.rating__control:nth-of-type(5):checked ~ .rating__item:nth-of-type(-n+5){
+  color: var(--uiRatingColorActive);
+}
+
+.rating__item:hover ~ .rating__item{
+  color: var(--uiRatingColor);
+}
+
+/*
+=====
+LEVEL 2. SETTINGS
+=====
+*/
+
+.rating{
+  --ratingSize: 30px;
+  --ratingColor: #eee;
+  --ratingColorActive: #ffcc00;
+}
+
+
+
+
+
+/*text pad*/
+
+* {
+  outline:none;
+  border:none;
+  margin:0px;
+  font-family:Courier, monospace;
+}
+
+#paper {
+  color:#FFF;
+  font-size:20px;
+}
+#margin {
+  margin-left:12px;
+  margin-bottom:20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; 
+}
+#text {
+  width:100%;
+  overflow:hidden;
+  background-color:#FFF;
+  color:#222;
+  font-family:Courier, monospace;
+  font-weight:normal;
+  font-size:24px;
+  resize:none;
+  line-height:40px;
+  padding-left:100px;
+  padding-right:100px;
+  padding-top:45px;
+  padding-bottom:34px;
+  background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+  background-repeat:repeat-y, repeat;
+  -webkit-border-radius:12px;
+  border-radius:12px;
+  -webkit-box-shadow: 0px 2px 14px #000;
+  box-shadow: 0px 2px 14px #000;
+  border-top:1px solid #FFF;
+  border-bottom:1px solid #FFF;
+}
+#title {
+  background-color:transparent;
+  border-bottom:3px solid #FFF;
+  color:#FFF;
+  font-size:20px;
+  font-family:Courier, monospace;
+  height:28px;
+  font-weight:bold;
+  width:220px;
+}
+
+#wrapper {
+  width:700px;
+  
+}
+
+.submit{
+  width:700px;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:24px;
+  margin-bottom:10px;
+}
