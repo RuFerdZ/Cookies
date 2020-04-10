@@ -30,7 +30,7 @@ if (isset($_GET['message'])) {
             <div class="col-sm-3">
                 <?php
                 foreach ($dbh->query('SELECT userID,userFname,userSName from user') as $row) {
-                    if ($receiverID == $row['userID']) {
+                    if ($userID == $row['userID']) {
                         continue;
                     }
                     echo '<a href=messages.php?receiverID=' . $row['userID'] . '>';
@@ -53,15 +53,16 @@ if (isset($_GET['message'])) {
                     echo '</div>';
                     echo '</th>';
                     echo '</tr>';
-                    $sql = "SELECT message.message, message.senderID, message.receiverID, CONCAT(user.userFname, ' ', user.userSName) as receiverName FROM message INNER JOIN user ON user.userID=receiverID WHERE senderID = " . $receiverID . " or receiverID = " . $receiverID;
+                    $sql = "SELECT message.message, message.senderID, message.receiverID, CONCAT(user.userFname, ' ', user.userSName) as receiverName FROM message INNER JOIN user ON user.userID=receiverID WHERE senderID = " . $receiverID . " or receiverID = " . $receiverID." ORDER BY `createdAt`";
+    
                     foreach ($dbh->query($sql) as $row) {
                         if ($row['senderID'] ==  $receiverID) {
                             echo '<tr class="mb-2">';
-                            echo '<td><span class="rounded bg-success p-2">' . $row['message'] . '</span></td>';
+                            echo '<td><span class="rounded p-2">' . $row['message'] . '</span></td>';
                             echo '</tr>';
                         } else {
                             echo '<tr class="text-right mb-2">';
-                            echo '<td><span class="rounded p-2">' . $row['message'] . '</span></td>';
+                            echo '<td><span class="rounded bg-success p-2">' . $row['message'] . '</span></td>';
                             echo '</tr>';
                         }
                     }
