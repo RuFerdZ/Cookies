@@ -37,9 +37,14 @@ if(isset($_POST['emailAddress']) && ($_POST['password'])){
                         echo "<p> The password you have entered for your account is incorrect </p>";
                         echo "<p> Try logging in again: <a href = 'home.php'> Log In </a> </p> ";
                     }else{
-                        $_SESSION['userid'] = $arrayu['userID'];
+                        $_SESSION['userid'] = $arrayu['userId'];
                         $_SESSION['usertype'] = $arrayu['userType'];
-                        $type = $_SESSION['usertype'];
+                        $_SESSION['fname'] = $arrayu['userFName'];
+                        $_SESSION['sname'] = $arrayu['userSName'];
+        
+                        $fName =$arrayu['userFName'];
+                        $sName = $arrayu['userSName'];
+                        $type =  $arrayu['userType'];
         
                         echo "<p> You have successfully logged in </p>";
                         echo "<p> Welcome $fName $sName</p>";
